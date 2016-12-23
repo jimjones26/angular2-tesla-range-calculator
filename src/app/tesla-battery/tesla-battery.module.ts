@@ -8,13 +8,17 @@ import { ReactiveFormsModule } from '@angular/forms';
 // containers
 import { TeslaBatteryComponent } from './containers/tesla-battery/tesla-battery.component';
 
+// components
+import { TeslaCarComponent } from './components/tesla-car/tesla-car.component';
+
 // services
 import { BatteryService } from './tesla-battery.service';
 
 @NgModule({
   declarations: [
     // registering our container component
-    TeslaBatteryComponent
+    TeslaBatteryComponent,
+    TeslaCarComponent
   ],
   imports: [
     CommonModule,
