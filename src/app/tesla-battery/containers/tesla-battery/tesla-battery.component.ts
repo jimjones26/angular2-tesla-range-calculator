@@ -68,7 +68,6 @@ export class TeslaBatteryComponent implements OnInit {
 
   ngOnInit() {
     this.models = this.batteryService.getModelData();
-
     this.tesla = this.fb.group({
       config: this.fb.group({
         speed: 55,
@@ -77,8 +76,10 @@ export class TeslaBatteryComponent implements OnInit {
         wheels: 19
       })
     });
-
     this.stats = this.calculateStats(this.results, this.tesla.controls['config'].value);
+    this.tesla.controls['config'].valueChanges.subscribe(data => {
+      this.stats = this.calculateStats(this.results, data);
+    });
   }
 
   private calculateStats(models, value): Stat[] {
